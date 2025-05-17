@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $query = Product::where('is_active', true);
-        $products = $query->orderBy('name')->paginate(12);
+        $products = $query->orderBy('name')->paginate(5);
         $cartCount = $this->cart->countItem();
 
         return view('shop.home', compact('products', 'cartCount'));
